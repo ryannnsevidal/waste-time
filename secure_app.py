@@ -91,6 +91,11 @@ def sanitize_input(data):
 # Global state for active calls
 active_calls = {}
 
+@app.route('/health')
+def health_check():
+    """Health check endpoint for deployment monitoring"""
+    return jsonify({"status": "healthy", "service": "secure-scammer-waste-bot"})
+
 @app.route('/')
 @limiter.limit("10 per minute")
 def home():
@@ -335,25 +340,23 @@ if __name__ == '__main__':
         if os.environ.get('FLASK_ENV') == 'production':
             response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains'
         return response
-    
-    # Run with security considerations
-    # Railway deployment configuration
+
+# Production mode detection
+if __name__ == '__main__':
+    # This block only runs when called directly with python secure_app.py
+    # In production, Gunicorn will import the app object directly
     port = int(os.environ.get('PORT', 5001))
     
     if os.environ.get('FLASK_ENV') == 'production':
         print("🔒 Running in PRODUCTION mode with enhanced security")
-        app.run(host='0.0.0.0', port=port, debug=False)  # Railway needs 0.0.0.0
+        print("⚠️  WARNING: Use Gunicorn for production deployment")
+        app.run(host='0.0.0.0', port=port, debug=False)
     else:
         print("🔧 Running in DEVELOPMENT mode")
         print(f"🔑 Demo API Key: {API_KEY}")
         print(f"🔐 Demo Admin Token: {ADMIN_TOKEN}")
         app.run(host='0.0.0.0', port=port, debug=True)
-
-@app.route('/health')
-def health_check():
-    """Health check endpoint for Railway"""
-    return jsonify({
-        "status": "healthy",
-        "timestamp": datetime.now().isoformat(),
-        "service": "scammer-waste-bot"
-    })
+else:
+    # Production mode with Gunicorn
+    print("🚀 Production mode: Application served by Gunicorn WSGI server")
+    print("🔒 Enhanced security and performance active")
