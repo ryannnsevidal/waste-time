@@ -1,0 +1,322 @@
+{
+  "timestamp": "2025-07-21T06:29:13.296857",
+  "api_connectivity": {
+    "test_name": "API Connectivity",
+    "tests_run": 3,
+    "tests_passed": 3,
+    "score": 100.0,
+    "details": [
+      {
+        "test": "health_endpoint",
+        "passed": true,
+        "status_code": 200,
+        "response_data": {
+          "components": {
+            "ai_engine": "operational",
+            "analytics": "operational",
+            "response_library": "operational"
+          },
+          "status": "healthy",
+          "timestamp": "2025-07-21T06:29:13.299431",
+          "version": "2.0.0"
+        }
+      },
+      {
+        "test": "home_page",
+        "passed": true,
+        "status_code": 200
+      },
+      {
+        "test": "stats_endpoint",
+        "passed": true,
+        "status_code": 200,
+        "has_required_fields": true
+      }
+    ]
+  },
+  "response_quality": {
+    "test_name": "Response Quality",
+    "tests_run": 4,
+    "tests_passed": 2,
+    "score": 50.0,
+    "details": [
+      {
+        "scenario": "tech_support_scam",
+        "message": "Hello, this is Microsoft. Your computer has a virus.",
+        "response": "Hold on, my cat is doing something strange. What did you say?",
+        "expected_traits": [
+          "confusion",
+          "questions",
+          "elderly_language"
+        ],
+        "traits_found": 2,
+        "trait_score": 66.66666666666666,
+        "passed": true,
+        "analysis": {
+          "authority_score": 0,
+          "financial_score": 0,
+          "frustration_level": 0,
+          "tech_score": 3,
+          "technique_detected": "tech_support",
+          "urgency_score": 0
+        }
+      },
+      {
+        "scenario": "authority_scam",
+        "message": "You owe the IRS $5000. Pay immediately or you'll be arrested.",
+        "response": "I need to find my glasses. Could you speak slower?",
+        "expected_traits": [
+          "concern",
+          "questions",
+          "family_mention"
+        ],
+        "traits_found": 1,
+        "trait_score": 33.33333333333333,
+        "passed": false,
+        "analysis": {
+          "authority_score": 2,
+          "financial_score": 0,
+          "frustration_level": 0,
+          "tech_score": 0,
+          "technique_detected": "authority_impersonation",
+          "urgency_score": 1
+        }
+      },
+      {
+        "scenario": "financial_scam",
+        "message": "We need your bank account information to process your refund.",
+        "response": "Hold on, my cat is doing something strange. What did you say?",
+        "expected_traits": [
+          "hesitation",
+          "verification_requests",
+          "confusion"
+        ],
+        "traits_found": 2,
+        "trait_score": 66.66666666666666,
+        "passed": true,
+        "analysis": {
+          "authority_score": 0,
+          "financial_score": 2,
+          "frustration_level": 0,
+          "tech_score": 0,
+          "technique_detected": "financial_fraud",
+          "urgency_score": 0
+        }
+      },
+      {
+        "scenario": "frustrated_scammer",
+        "message": "Why aren't you listening? This is urgent!",
+        "response": "Oh my... Hold on, my daughter is calling on the other line.",
+        "expected_traits": [
+          "confusion",
+          "apology",
+          "distraction"
+        ],
+        "traits_found": 1,
+        "trait_score": 33.33333333333333,
+        "passed": false,
+        "analysis": {
+          "authority_score": 0,
+          "financial_score": 0,
+          "frustration_level": 0,
+          "tech_score": 0,
+          "technique_detected": "financial_fraud",
+          "urgency_score": 1
+        }
+      }
+    ]
+  },
+  "ai_engine_performance": {
+    "test_name": "AI Engine Performance",
+    "tests_run": 6,
+    "tests_passed": 6,
+    "score": 100.0,
+    "conversation_tests": [
+      {
+        "turn": 1,
+        "message": "Hello, this is the IRS. You owe money.",
+        "response_received": true,
+        "analysis_present": true,
+        "frustration_tracking": false,
+        "technique_detection": true
+      },
+      {
+        "turn": 2,
+        "message": "You need to pay $500 immediately.",
+        "response_received": true,
+        "analysis_present": true,
+        "frustration_tracking": false,
+        "technique_detection": true
+      },
+      {
+        "turn": 3,
+        "message": "Why are you asking so many questions?",
+        "response_received": true,
+        "analysis_present": true,
+        "frustration_tracking": false,
+        "technique_detection": true
+      },
+      {
+        "turn": 4,
+        "message": "This is urgent! You'll be arrested!",
+        "response_received": true,
+        "analysis_present": true,
+        "frustration_tracking": false,
+        "technique_detection": true
+      },
+      {
+        "turn": 5,
+        "message": "Just give me your credit card number!",
+        "response_received": true,
+        "analysis_present": true,
+        "frustration_tracking": false,
+        "technique_detection": true
+      }
+    ],
+    "reset_test": {
+      "test": "conversation_reset",
+      "passed": true,
+      "status_code": 200
+    }
+  },
+  "conversation_flow": {
+    "test_name": "Conversation Flow",
+    "tests_run": 2,
+    "tests_passed": 1,
+    "score": 50.0,
+    "details": [
+      {
+        "scenario": "escalation_handling",
+        "messages_sent": 3,
+        "responses_received": 3,
+        "flow_quality": {
+          "score": 65,
+          "issues": [
+            "High repetition in responses",
+            "Responses too similar in length"
+          ],
+          "response_count": 3,
+          "avg_length": 57.333333333333336
+        },
+        "passed": false
+      },
+      {
+        "scenario": "technique_adaptation",
+        "messages_sent": 3,
+        "responses_received": 3,
+        "flow_quality": {
+          "score": 85,
+          "issues": [
+            "Responses too similar in length"
+          ],
+          "response_count": 3,
+          "avg_length": 55.333333333333336
+        },
+        "passed": true
+      }
+    ]
+  },
+  "analytics_accuracy": {
+    "test_name": "Analytics Accuracy",
+    "tests_run": 3,
+    "tests_passed": 3,
+    "score": 100.0,
+    "details": [
+      {
+        "test": "stats_endpoint",
+        "passed": true,
+        "status_code": 200,
+        "has_required_fields": true
+      },
+      {
+        "test": "dashboard_endpoint",
+        "passed": true,
+        "status_code": 200
+      },
+      {
+        "test": "technique_analysis",
+        "passed": true,
+        "status_code": 200
+      }
+    ]
+  },
+  "rate_limiting": {
+    "test_name": "Rate Limiting",
+    "tests_run": 35,
+    "rate_limited_requests": 20,
+    "rate_limiting_functional": true,
+    "score": 100,
+    "passed": true
+  },
+  "security": {
+    "test_name": "Security",
+    "tests_run": 3,
+    "tests_passed": 3,
+    "score": 100.0,
+    "details": [
+      {
+        "test": "api_key_requirement",
+        "passed": true,
+        "status_code": 401
+      },
+      {
+        "test": "invalid_api_key",
+        "passed": true,
+        "status_code": 401
+      },
+      {
+        "test": "missing_api_key",
+        "passed": true,
+        "status_code": 401
+      }
+    ]
+  },
+  "load_performance": {
+    "test_name": "Load Performance",
+    "tests_run": 10,
+    "successful_requests": 0,
+    "fast_responses": 10,
+    "average_response_time": 0.003,
+    "score": 100.0,
+    "passed": true
+  },
+  "edge_cases": {
+    "test_name": "Edge Cases",
+    "tests_run": 5,
+    "tests_passed": 0,
+    "score": 0.0,
+    "details": [
+      {
+        "test_case": "empty_message",
+        "status_code": 429,
+        "handled_gracefully": false,
+        "passed": false
+      },
+      {
+        "test_case": "very_long_message",
+        "status_code": 429,
+        "handled_gracefully": false,
+        "passed": false
+      },
+      {
+        "test_case": "special_characters",
+        "status_code": 429,
+        "handled_gracefully": false,
+        "passed": false
+      },
+      {
+        "test_case": "no_message_field",
+        "status_code": 429,
+        "handled_gracefully": false,
+        "passed": false
+      },
+      {
+        "test_case": "malformed_json",
+        "status_code": 429,
+        "handled_gracefully": false,
+        "passed": false
+      }
+    ]
+  },
+  "overall_score": 77.78
+}
