@@ -1,32 +1,32 @@
-# 🤖 Scammer Waste Bot - Integration Complete! 🎉
+# Scammer Waste Bot - Integration Complete
 
 ## What We Built
 Successfully integrated the React frontend dashboard with your Flask backend scammer waste bot!
 
-## 🎯 Key Features Integrated
+## Key Features Integrated
 
-### 📊 Real-time Dashboard
+### Real-time Dashboard
 - Live call monitoring and statistics
 - CSV analytics visualization  
 - Success rate tracking
 - Money saved calculations
 - Recent call history
 
-### 🔧 Backend Integration
+### Backend Integration
 - Flask API endpoints for frontend communication
 - CORS enabled for cross-origin requests
 - Active call tracking system
 - CSV data reading and processing
 - Real-time statistics generation
 
-### 🐳 Docker Deployment
+### Docker Deployment
 - Multi-stage build (React frontend + Python backend)
 - Production-ready with nginx reverse proxy
 - Development and production configurations
 - Health checks and monitoring
 - Volume mounts for data persistence
 
-## 🚀 How to Use
+## How to Use
 
 ### Quick Start
 ```bash
@@ -63,14 +63,14 @@ cd interface-imagine-integrate-main
 npm run dev
 ```
 
-## 📡 API Endpoints
+## API Endpoints
 
 - `GET /` - Dashboard (serves React app)
 - `GET /api/stats` - Real-time statistics
 - `POST /api/calls/:id/end` - End active call
 - `POST /voice` - Twilio webhook for calls
 
-## 📊 Dashboard Features
+## Dashboard Features
 
 - **Live Call Monitor** - See active scammer calls in real-time
 - **Analytics Charts** - Visual data about time wasted and success rates
@@ -78,7 +78,7 @@ npm run dev
 - **System Status** - Health checks and alerts
 - **CSV Export** - Download analytics data
 
-## 🔧 Configuration
+## Configuration
 
 The system automatically:
 - Reads CSV files from `analytics_data/` directory
@@ -86,19 +86,19 @@ The system automatically:
 - Serves frontend from `/static` when built
 - Provides API fallbacks when frontend isn't available
 
-## 🎉 Ready to Waste Scammer Time!
+## Ready to Waste Scammer Time
 
 Your bot now has:
-✅ Modern React dashboard
-✅ Real-time call tracking  
-✅ Advanced analytics
-✅ Docker deployment
-✅ Production-ready setup
-✅ API integration
-✅ CSV data export
+- Modern React dashboard
+- Real-time call tracking  
+- Advanced analytics
+- Docker deployment
+- Production-ready setup
+- API integration
+- CSV data export
 
 **Dashboard:** http://localhost:5001
 **API:** http://localhost:5001/api/stats
 **Webhook:** http://localhost:5001/voice
 
-Time to confuse some scammers! 🤖👴📞
+Time to confuse some scammers

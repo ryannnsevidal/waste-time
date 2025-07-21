@@ -312,7 +312,7 @@ def generate_daily_report(csv_file):
     df = pd.read_csv(csv_file)
     
     report = []
-    report.append(f"📊 daily scammer analysis report - {datetime.now().strftime('%Y-%m-%d')}")
+    report.append(f"daily scammer analysis report - {datetime.now().strftime('%Y-%m-%d')}")
     report.append("=" * 60)
     report.append("")
     
@@ -321,7 +321,7 @@ def generate_daily_report(csv_file):
     total_time_wasted = df['estimated_time_waste'].sum()
     avg_frustration = df['scammer_frustration'].mean()
     
-    report.append("🎯 key metrics:")
+    report.append("key metrics:")
     report.append(f"   • total scammer interactions: {total_interactions}")
     report.append(f"   • total time wasted: {total_time_wasted:,.0f} seconds ({total_time_wasted/60:.1f} minutes)")
     report.append(f"   • average scammer frustration: {avg_frustration:.2f}/10")
@@ -329,7 +329,7 @@ def generate_daily_report(csv_file):
     
     # top strategies
     top_strategies = df['strategy'].value_counts().head(3)
-    report.append("🏆 most used strategies:")
+    report.append("most used strategies:")
     for strategy, count in top_strategies.items():
         pct = (count / total_interactions) * 100
         report.append(f"   • {strategy}: {count} times ({pct:.1f}%)")
@@ -343,7 +343,7 @@ def generate_daily_report(csv_file):
         'threats detected': df['is_threatening'].sum()
     }
     
-    report.append("🚨 scam detection summary:")
+    report.append("scam detection summary:")
     for scam_type, count in scam_stats.items():
         pct = (count / total_interactions) * 100
         report.append(f"   • {scam_type}: {count} ({pct:.1f}%)")

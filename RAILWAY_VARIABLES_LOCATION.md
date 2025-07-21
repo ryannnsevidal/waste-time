@@ -1,4 +1,4 @@
-# 🎯 EXACT Steps to Add Environment Variables in Railway
+# EXACT Steps to Add Environment Variables in Railway
 
 ## Current Status:
 You should be on your Railway dashboard at railway.app, looking at your "scammer-bot" project.
@@ -61,10 +61,10 @@ SECRET_KEY = 643f8724918f0819b408c380a12cfe4183bf0407092512ea663aeb2b5e07e12b
 DATABASE_URL = postgresql://... (this one is auto-added by Railway)
 ```
 
-## 🚨 **If You Can't Find "Variables" Tab:**
+## **If You Can't Find "Variables" Tab:**
 
 ### Alternative Method:
-1. Look for a **gear icon** ⚙️ (Settings)
+1. Look for a **gear icon** (Settings)
 2. Click Settings
 3. Look for "Environment Variables" section
 4. Add the variables there
@@ -73,7 +73,7 @@ DATABASE_URL = postgresql://... (this one is auto-added by Railway)
 1. Look for "Configuration" or "Environment"
 2. These might be in a sidebar or dropdown menu
 
-## 📱 **Tell Me What You See:**
+## **Tell Me What You See:**
 If you still can't find the Variables section, tell me:
 - What tabs do you see at the top?
 - What buttons or links are on the page?

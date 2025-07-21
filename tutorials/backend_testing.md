@@ -16,7 +16,7 @@ curl http://localhost:5000/
 
 # expected output:
 # <h1>waste time bot</h1>
-# <p>bot is running and ready to waste scammer time 🤖👴</p>
+# <p>bot is running and ready to waste scammer time</p>
 ```
 
 ### 2. docker testing
@@ -90,7 +90,7 @@ test_cases = [
     }
 ]
 
-print("🧪 batch testing ai responses")
+print("batch testing ai responses")
 print("="*50)
 
 for i, test in enumerate(test_cases, 1):
@@ -101,7 +101,7 @@ for i, test in enumerate(test_cases, 1):
     
     print(f"strategy: {result['strategy']}")
     print(f"expected: {test['expected_strategy']}")
-    print(f"match: {'✅' if result['strategy'] == test['expected_strategy'] else '❌'}")
+    print(f"match: {'PASS' if result['strategy'] == test['expected_strategy'] else 'FAIL'}")
     print(f"time waste: {result['estimated_time_waste']}s")
     print(f"response preview: {result['response'][:80]}...")
 ```
@@ -140,7 +140,7 @@ test_inputs = [
     "You won $1 million, just pay processing fees"
 ]
 
-print("🔬 running analytics test suite...")
+print("running analytics test suite...")
 
 for input_text in test_inputs:
     result = get_sophisticated_response(input_text)
@@ -153,7 +153,7 @@ print("\n" + report)
 
 # export data to csv
 csv_file = analytics.export_to_csv()
-print(f"\n📊 data exported to: {csv_file}")
+print(f"\ndata exported to: {csv_file}")
 ```
 
 ## csv data analysis

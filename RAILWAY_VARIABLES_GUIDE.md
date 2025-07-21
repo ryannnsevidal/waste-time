@@ -1,6 +1,6 @@
 # Railway Dashboard Environment Variables Setup
 
-## 🚀 Step-by-Step Guide to Add Environment Variables in Railway
+## Step-by-Step Guide to Add Environment Variables in Railway
 
 ### 1. **After Creating Your Railway Account and Project:**
 
@@ -74,20 +74,20 @@ Railway Dashboard → Your Project → Your Service → Variables Tab
 ### 7. **Verify Variables Are Set:**
 
 Your app should show:
-- **"🔒 Running in PRODUCTION mode with enhanced security"** in logs
+- **"Running in PRODUCTION mode with enhanced security"** in logs
 - No demo keys printed (they're hidden in production)
 
-## ⚠️ **IMPORTANT Security Notes:**
+## **IMPORTANT Security Notes:**
 
 - **Never commit these keys to git** (already protected by .gitignore)
 - **These are your production secrets** - keep them secure
 - **DATABASE_URL is auto-generated** by Railway when you add PostgreSQL
 
-## 🎯 **Ready to Deploy?**
+## **Ready to Deploy?**
 
 After setting these variables:
 ```bash
 railway up
 ```
 
-Your app will be live with enterprise-grade security! 🚀
+Your app will be live with enterprise-grade security

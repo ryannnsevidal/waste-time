@@ -1,6 +1,6 @@
 # Mobile App Setup Guide
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 ```bash
@@ -29,7 +29,7 @@ npm run ios
 npm run web
 ```
 
-## 📱 Features
+## Features
 
 ### Core Functionality
 - **Real-time Dashboard** - Live statistics and call monitoring
@@ -44,7 +44,7 @@ npm run web
 - **Offline Support** - Core features work without internet
 - **Push Notifications** - Real-time alerts and updates
 
-## 🎨 Screens
+## Screens
 
 ### 1. Dashboard Screen
 - Live connection status
@@ -77,7 +77,7 @@ npm run web
 - Data export functionality
 - About information
 
-## 🔧 Configuration
+## Configuration
 
 ### API Connection
 Update the API URL in Settings screen or modify default in `SettingsScreen.js`:
@@ -91,7 +91,7 @@ apiKey: 'your-api-key'
 - **Charts**: Configure chart settings in screen files
 - **Scripts**: Update call scripts in `CallScreen.js`
 
-## 📦 Building for Production
+## Building for Production
 
 ### Android
 ```bash
@@ -108,7 +108,7 @@ eas build --platform ios
 expo build:web
 ```
 
-## 🚀 Deployment
+## Deployment
 
 ### Expo Publishing
 ```bash
@@ -120,21 +120,21 @@ expo publish
 2. Submit to Google Play Store / Apple App Store
 3. Configure app store listings and metadata
 
-## 🔐 Security Features
+## Security Features
 
 - **API Key Authentication** - Secure backend communication
 - **Input Validation** - All user inputs sanitized
 - **Secure Storage** - Sensitive settings encrypted
 - **HTTPS Only** - Encrypted data transmission
 
-## 📊 Analytics Integration
+## Analytics Integration
 
 Ready for analytics services:
 - **Expo Analytics** - Built-in user analytics
 - **Custom Events** - Track call success rates
 - **Performance Monitoring** - App performance metrics
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 1. **Metro bundler errors**: Clear cache with `expo r -c`
@@ -147,7 +147,7 @@ Ready for analytics services:
 expo start --dev-client
 ```
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create feature branch
@@ -155,7 +155,7 @@ expo start --dev-client
 4. Test on multiple devices
 5. Submit pull request
 
-## 📝 License
+## License
 
 MIT License - see LICENSE file for details
 

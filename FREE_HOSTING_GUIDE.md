@@ -1,6 +1,6 @@
 # Free Hosting & Database Setup Guide
 
-## 🆓 Best FREE Platforms for Your App
+## Best FREE Platforms for Your App
 
 ### 1. **Railway** (RECOMMENDED)
 **Why it's perfect:**
@@ -36,7 +36,7 @@ railway up
 - API generation
 - 50,000 monthly active users
 
-## 📊 Your CSV Generation is ALREADY Configured
+## Your CSV Generation is ALREADY Configured
 
 Your app automatically generates CSV files with comprehensive analytics:
 
@@ -55,7 +55,7 @@ Your app automatically generates CSV files with comprehensive analytics:
 - `scammer_analysis_20250720.csv`
 - `scammer_analysis_20250721.csv`
 
-## 🚀 Quick Free Deployment Setup
+## Quick Free Deployment Setup
 
 ### Option 1: Railway + PostgreSQL (RECOMMENDED)
 ```bash
@@ -86,7 +86,7 @@ services:
         value: production
 ```
 
-## 🗄️ Database Migration from CSV
+## Database Migration from CSV
 
 Create a simple script to migrate your CSV data to PostgreSQL:
 
@@ -110,7 +110,7 @@ def migrate_csv_to_postgres():
     conn.close()
 ```
 
-## 💾 Enhanced Database Schema
+## Enhanced Database Schema
 
 ```sql
 CREATE TABLE scammer_analytics (
@@ -139,7 +139,7 @@ CREATE TABLE scammer_analytics (
 );
 ```
 
-## 🔄 Auto-Sync CSV to Database
+## Auto-Sync CSV to Database
 
 Add this to your secure_app.py:
 
@@ -155,7 +155,7 @@ def sync_csv_to_database():
         return jsonify({"status": "error", "message": str(e)})
 ```
 
-## 📈 Next Steps
+## Next Steps
 
 1. **Choose Railway** (easiest for beginners)
 2. **Connect your GitHub repo**
@@ -163,7 +163,7 @@ def sync_csv_to_database():
 4. **Deploy with one click**
 5. **Your CSV generation continues automatically**
 
-## 💰 Cost Breakdown (FREE)
+## Cost Breakdown (FREE)
 
 **Railway Free Tier:**
 - $5 credit monthly = FREE for small apps
