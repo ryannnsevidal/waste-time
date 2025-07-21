@@ -69,7 +69,7 @@ def test_escalating_scenarios():
         print(f"   ALL CAPS Words: {analysis['all_caps_words']}")
         print()
         
-        print("🎯 THRESHOLD TRIGGERS:")
+        print("THRESHOLD TRIGGERS:")
         thresholds = {
             'High Urgency': analysis['is_high_urgency'],
             'Authority Claim': analysis['is_authority_claim'],
@@ -104,7 +104,7 @@ def test_specific_threshold_triggers():
     
     analyzer = ScammerAnalyzer()
     
-    print("🎯 SPECIFIC THRESHOLD TRIGGER TESTS 🎯")
+    print("SPECIFIC THRESHOLD TRIGGER TESTS")
     print("=" * 50)
     print()
     
@@ -164,7 +164,7 @@ def test_specific_threshold_triggers():
             analysis = analyzer.analyze_scammer_input(phrase)
             triggered = analysis[test_case['expected_threshold']]
             
-            status = "✅ TRIGGERED" if triggered else "❌ NOT TRIGGERED"
+            status = "TRIGGERED" if triggered else "NOT TRIGGERED"
             print(f"{status} - \"{phrase}\"")
             print(f"   Frustration Level: {analysis['frustration_level']:.2f}")
             print(f"   Total Suspicion: {analysis['total_suspicion']}")

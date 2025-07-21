@@ -1,23 +1,47 @@
-# waste time bot
+# scammer waste bot 🤖👴
 
 ## what this does
 picks up scammer calls and pretends to be confused grandpa to waste their time so they cant scam real people
+
+## features
+- 🧠 AI-powered conversation analysis
+- 📊 Real-time dashboard with analytics
+- 📞 Twilio integration for live calls
+- 💾 CSV data export for analysis
+- 🐳 Docker deployment ready
+- 🎯 Advanced time-wasting strategies
 
 ## how it works
 - flask app waits for calls from twilio
 - when scammers call it uses ai to figure out what scam theyre running
 - responds with appropriate confused grandpa responses  
 - keeps them on the phone as long as possible
-- tracks total time wasted
+- tracks total time wasted and shows real-time stats
 
-## tech stuff
-- python flask backend
-- openai for smart responses and voice transcription
-- elevenlabs for text to speech
-- twilio handles the actual phone calls
-- slack notifications when calls come in
+## quick start with docker 🐳
 
-## setup
+### option 1: automated deployment
+```bash
+./deploy.sh
+```
+select option 1 for development or option 2 for production
+
+### option 2: manual docker
+```bash
+# development (dashboard on port 5001)
+docker-compose up --build -d
+
+# production (with nginx on port 80)
+docker-compose --profile production up --build -d
+```
+
+### option 3: test deployment
+```bash
+docker-compose up --build -d
+./test-deployment.sh
+```
+
+## local development setup
 1. copy config_template.py to config.py and add your real api keys
 2. install stuff: `pip install -r requirements.txt`
 3. run it: `python app.py`

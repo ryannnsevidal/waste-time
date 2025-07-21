@@ -11,6 +11,13 @@ import datetime
 from massive_responses import *
 from gift_card_numbers import *
 
+# import app tracking functions if available
+try:
+    from app import start_call_tracking, active_calls
+    APP_INTEGRATION = True
+except ImportError:
+    APP_INTEGRATION = False
+
 class ScammerAnalyzer:
     # looks at scammer messages and figures out what type of scam theyre running
     
@@ -140,16 +147,29 @@ class ScammerAnalyzer:
 class SophisticatedResponseEngine:
     # picks the best response to waste the most time based on what scammer said
     
-    def __init__(self):
+    def __init__(self, caller_phone=None):
         self.analyzer = ScammerAnalyzer()
         self.conversation_history = []
         self.scammer_frustration_level = 0
         self.time_wasted = 0
+        self.caller_phone = caller_phone
+        self.call_id = None
         
         # csv logging setup
         self.csv_dir = "analytics_data"
         self.csv_file = f"{self.csv_dir}/scammer_analysis_{datetime.datetime.now().strftime('%Y%m%d')}.csv"
         self._setup_csv_logging()
+        
+        # start call tracking for dashboard if available
+        if APP_INTEGRATION and caller_phone:
+            import uuid
+            self.call_id = str(uuid.uuid4())
+            # detect scam type from first analysis
+            scam_type = "Unknown"
+            try:
+                start_call_tracking(self.call_id, caller_phone, scam_type)
+            except Exception as e:
+                print(f"couldnt start call tracking: {e}")
         
         # different ways to waste scammer time (ranked by how effective they are)
         self.strategies = {

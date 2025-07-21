@@ -1,0 +1,6 @@
+{
+  "deploy": {
+    "startCommand": "python secure_app.py",
+    "healthcheckPath": "/health"
+  }
+}

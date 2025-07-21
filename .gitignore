@@ -15,6 +15,13 @@ config.py
 *.key
 *.crt
 
+# Security logs
+security.log
+*.log
+
+# Railway deployment
+.railway/
+
 # Environment Variables
 .envrc
 

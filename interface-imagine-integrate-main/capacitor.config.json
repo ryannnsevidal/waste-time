@@ -1,0 +1,20 @@
+{
+  "appId": "app.lovable.265143b6a01f4d7d83eeac20615aa92c",
+  "appName": "Scammer Waste Bot",
+  "webDir": "dist",
+  "server": {
+    "url": "https://265143b6-a01f-4d7d-83ee-ac20615aa92c.lovableproject.com?forceHideBadge=true",
+    "cleartext": true
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 2000,
+      "backgroundColor": "#ff5722",
+      "showSpinner": true,
+      "spinnerColor": "#ffffff"
+    },
+    "StatusBar": {
+      "style": "light"
+    }
+  }
+}
