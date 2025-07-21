@@ -22,7 +22,7 @@ Automated system designed to intercept fraudulent phone calls and implement stra
 
 ### Automated Deployment
 ```bash
-./deploy.sh
+./scripts/deploy.sh
 ```
 Select option 1 for development environment or option 2 for production deployment
 
@@ -38,13 +38,13 @@ docker-compose --profile production up --build -d
 ### Testing Deployment
 ```bash
 docker-compose up --build -d
-./test-deployment.sh
+./scripts/test-deployment.sh
 ```
 
 ## Local Development Environment
-1. Copy config_template.py to config.py and configure production API keys
+1. Copy `config/.env.template` to `src/config.py` and configure production API keys
 2. Install dependencies: `pip install -r requirements.txt`
-3. Launch application: `python app.py`
+3. Launch application: `python run.py` (development) or `python run_secure.py` (production)
 4. Configure ngrok tunnel: `ngrok http 5000`
 5. Set Twilio webhook endpoint to ngrok URL with `/voice` path
 
@@ -66,7 +66,7 @@ curl http://localhost:5001/
 ### AI Engine Validation
 ```python
 # Test individual scammer analysis functionality
-from sophisticated_engine import get_sophisticated_response
+from src.ai.sophisticated_engine import get_sophisticated_response
 
 result = get_sophisticated_response("You need to buy gift cards NOW!")
 print(f"Strategy: {result['strategy']}")
@@ -77,7 +77,7 @@ print(f"Response: {result['response']}")
 ### Comprehensive Testing Suite
 Execute the sophisticated demo for complete AI system validation:
 ```bash
-python sophisticated_demo.py
+python tests/sophisticated_demo.py
 ```
 
 This provides testing options for:
@@ -90,7 +90,7 @@ This provides testing options for:
 
 ### Automated CSV Logging
 The AI engine automatically logs all conversations to CSV files:
-- Files saved to `analytics_data/scammer_analysis_YYYYMMDD.csv`
+- Files saved to `data/analytics/scammer_analysis_YYYYMMDD.csv`
 - Includes timestamps, scammer input, AI strategy used, response previews
 - Tracks urgency scores, authority claims, payment scam detection
 - Measures time waste effectiveness and frustration levels
@@ -102,7 +102,7 @@ timestamp,scammer_input,strategy,response_preview,urgency_score,authority_score,
 
 ### Manual CSV Export from Demos
 ```python
-from sophisticated_demo import AdvancedAnalytics
+from tests.sophisticated_demo import AdvancedAnalytics
 
 analytics = AdvancedAnalytics()
 # run tests...
@@ -113,7 +113,7 @@ print(f"Data exported to: {filename}")
 ### Data Privacy Protocol
 - All CSV files are automatically excluded from version control
 - Analytics data remains local and is never committed to GitHub
-- Files stored in `analytics_data/` directory with restricted access
+- Files stored in `data/analytics/` directory with restricted access
 
 ## Advanced AI Features
 The AI engine includes:
@@ -126,12 +126,25 @@ The AI engine includes:
 
 ## Project Architecture
 ```
-├── app.py                    # Main Flask application
-├── sophisticated_engine.py   # AI analysis and response generation
-├── sophisticated_demo.py     # Advanced testing suite with analytics
-├── massive_responses.py      # Database of conversational responses
-├── gift_card_numbers.py      # Simulated gift card numbers
-├── twilio_handler.py         # Phone call integration
-├── analytics_data/           # CSV files (excluded from version control)
-└── static/                   # Hold music and assets
+├── src/                          # Source code
+│   ├── app.py                    # Main Flask application
+│   ├── secure_app.py             # Production app with security
+│   ├── config.py                 # Configuration management
+│   ├── twilio_handler.py         # Phone call integration
+│   ├── ai/                       # AI engine components
+│   │   ├── sophisticated_engine.py   # AI analysis and response generation
+│   │   └── massive_responses.py      # Database of conversational responses
+│   ├── data/                     # Data handling
+│   │   └── gift_card_numbers.py  # Simulated gift card numbers
+│   └── utils/                    # Utility functions
+├── mobile/                       # React Native mobile app
+├── scripts/                      # Deployment and utility scripts
+├── tests/                        # Test suite and demos
+├── docs/                         # Documentation
+├── config/                       # Configuration files
+├── data/                         # Data storage
+│   ├── analytics/               # CSV files (excluded from version control)
+│   ├── logs/                    # Application logs
+│   └── static/                  # Static assets
+└── legal/                       # Legal documents
 ```

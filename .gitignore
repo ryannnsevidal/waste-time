@@ -1,5 +1,6 @@
 # Sensitive Configuration Files
-config.py
+src/config.py
+config/config.py
 .env
 .env.local
 .env.production
@@ -16,6 +17,7 @@ config.py
 *.crt
 
 # Security logs
+data/logs/*.log
 security.log
 *.log
 
@@ -235,7 +237,7 @@ cython_debug/
 
 # Analytics and CSV Data Files
 *.csv
-analytics_data/
+data/analytics/
 conversation_logs/
 performance_data/
 scammer_analysis_*.json

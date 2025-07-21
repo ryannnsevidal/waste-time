@@ -13,11 +13,13 @@ RUN apt-get update && apt-get install -y \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy backend source code
-COPY . .
+# Copy application code
+COPY src/ ./src/
+COPY run_secure.py .
+COPY config/ ./config/
 
-# Create analytics data directory
-RUN mkdir -p analytics_data
+# Create data directories
+RUN mkdir -p data/analytics data/logs data/static
 
 # Expose ports
 EXPOSE 5001
@@ -27,4 +29,5 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD curl -f http://localhost:8080/health || exit 1
 
 # Default command - Use Gunicorn for production
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--workers", "2", "--timeout", "120", "secure_app:app"]
+# Default command - Use Gunicorn for production
+CMD ["python", "run_secure.py"]
