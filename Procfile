@@ -1,1 +1,1 @@
-web: python secure_app.py
+web: cd src && gunicorn app:app --bind 0.0.0.0:$PORT
